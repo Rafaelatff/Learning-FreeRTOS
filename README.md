@@ -75,3 +75,47 @@ Config as followed:
 5-e - Inside 'Build' -> 'GNU Compiler' go to 'Symbols' then click in the 'Add...' button and generate a symbol with the name 'gcc'.
 
 ![image](https://user-images.githubusercontent.com/58916022/171050253-3437d422-17aa-481a-a612-2d9efd1dbc62.png)
+
+5-f - **CHECK FOR INSTRUCTIONS TO ADD TARGET BOARD, SINCE THE [EXAMPLE](https://www.youtube.com/watch?v=Mp40CFFdpZo) THAT I AM FOLLOWING USES TM4C123 BOARD**
+Inside 'Build' -> 'GNU Compiler' go to 'Symbols' then click in the 'Add...' button and generate a symbol with the name 'TARGET_IS_TM4C123_RB1'.
+
+5-g - Inside 'Build' -> 'GNU Compiler' go to 'Optimization' and leave as following:
+
+![image](https://user-images.githubusercontent.com/58916022/171055467-308d9723-efba-4c53-8f40-cef09e3bb278.png)
+
+5-h - Inside 'Build' -> 'GNU Linker' and 'Basic', tick the option 'Remove unused sections (--gc-sections).
+
+![image](https://user-images.githubusercontent.com/58916022/171055518-a2b63a4d-2e26-4aa7-a893-3ea4a704483d.png)
+
+**6 - Now let's add library files**
+
+Right click on the project at Project Explorer tree, then go to 'Add Files...' and add the file 'libdriver.a' (ti\TivaWare_C_Series-2.2.0.295\driverlib\gcc).
+
+![image](https://user-images.githubusercontent.com/58916022/171055842-9727018f-860f-4ac7-91db-572ca4b3aac8.png)
+
+**7 - **
+
+7-a - Now from the 'Project Explorer' tree, let's copy from the file 'port.c' ('TivaC-TM4C-FreeRTOS' -> 'portable' -> 'GCC' -> 'ARM_CM4F') the following lines (165, 166 and 167): 
+
+
+void xPortPendSVHandler( void ) __attribute__ (( naked )); 
+
+void xPortSysTickHandler( void );
+
+void vPortSVCHandler( void ) __attribute__ (( naked ));
+
+7-b - And then copy in the 'tm4c1294ncpdt_startup_ccs_gcc.c' file ('TivaC-TM4C-FreeRTOS') after line 60, and leave like that: 
+
+
+// To be added by user
+
+extern void xPortPendSVHandler( void );
+
+extern void xPortSysTickHandler( void );
+
+extern void vPortSVCHandler( void );
+
+
+// A continuar (minuto 10 do video). Fui levar os dogs pra passear antes que chovesse.
+
+
