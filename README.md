@@ -3,7 +3,7 @@ Let's learn FreeRTOS using Tiva C Series TM4C1294
 
 ## Checking hardware compatibility
 
-On https://www.freertos.org/RTOS_ports.html website, there is a list of the official RTOS ports.  These demos can be adapted to any microcontroller within a supported microcontroller family. 
+On [FreeRTOS](https://www.freertos.org/RTOS_ports.html) website, there is a list of the official RTOS ports.  These demos can be adapted to any microcontroller within a supported microcontroller family. 
 
 For the Hardware Partner TI (Texas Instruments), the 	Supported Processor Families are: RM48, TMS570, ARM Cortex-M4F MSP432, MSP430, MSP430X, SimpleLink, Stellaris (ARM Cortex-M3, ARM Cortex-M4F). For the same hardware partner, the Supported Tools are: Rowley CrossWorks, IAR, GCC, Code Composer Studio.
 
@@ -21,4 +21,4 @@ It looks like a good start and no need for a new hardware.
 
 ## Downloading the FreeRTOS
 
-https://www.freertos.org/a00104.html
+I downloaded the version [FreeRTOS 202112.00](https://www.freertos.org/a00104.html).
