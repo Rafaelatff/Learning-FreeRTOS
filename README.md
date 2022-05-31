@@ -93,7 +93,7 @@ Right click on the project at Project Explorer tree, then go to 'Add Files...' a
 
 ![image](https://user-images.githubusercontent.com/58916022/171055842-9727018f-860f-4ac7-91db-572ca4b3aac8.png)
 
-**7 - **
+**7 - Edit startup file**
 
 7-a - Now from the 'Project Explorer' tree, let's copy from the file 'port.c' ('TivaC-TM4C-FreeRTOS' -> 'portable' -> 'GCC' -> 'ARM_CM4F') the following lines (165, 166 and 167): 
 
@@ -104,7 +104,7 @@ void xPortSysTickHandler( void );
 
 void vPortSVCHandler( void ) __attribute__ (( naked ));
 
-7-b - And then copy in the 'tm4c1294ncpdt_startup_ccs_gcc.c' file ('TivaC-TM4C-FreeRTOS') after line 60, and leave like that: 
+7-b - And then paste in the 'tm4c1294ncpdt_startup_ccs_gcc.c' file ('TivaC-TM4C-FreeRTOS') after line 60, and leave like that: 
 
 
 // To be added by user
@@ -115,7 +115,50 @@ extern void xPortSysTickHandler( void );
 
 extern void vPortSVCHandler( void );
 
+7-c - Then replace the information of the following lines: 
 
-// A continuar (minuto 10 do video). Fui levar os dogs pra passear antes que chovesse.
+    IntDefaultHandler,      // The PendSV handler   --->  xPortPendSVHandler,      // The PendSV handler
+    
+    IntDefaultHandler,      // The SysTick handler  ---> xPortSysTickHandler,      // The SysTick handler
+    
+    IntDefaultHandler,      // SVCall handler       ---> vPortSVCHandler,          // SVCall handler
+    
+**8 - Import FreeRTOS example files**
+
+8-a - The current version of TivaWare does't have a FreeRTOS example (inside the 'ti\TivaWare_C_Series-2.1.1.71\examples\boards\ek-tm4c1294xl'), so it was told to download the version 'TivaWare_C_Series-2.1.0.12573' but did not find it. I search the other versions and no success.
+**COULD NOT FIND ONE WITH AN EXAMPLE FILE FOR TM4C1294 BOARD**.
+
+8-b - Right click on the project at Project Explorer tree, then go to 'Import' -> 'Import...'. Select 'File System' inside the 'General' option, and add the following directory: 'ti\TivaWare_C_Series-2.1.0.12573\examples\boards\ek-tm4c1294xl'. Then tick the options 'freertos_demo.c', 'led_task.c', 'led_task.h', 'priorities.h', 'switch_task.c' and 'switch_task.h'. Then click in 'Finish' button.
+**COULD NOT FIND ONE WITH AN EXAMPLE FILE FOR TM4C1294 BOARD**.
+
+**9 - Import FreeRTOS utils and drivers**
+
+9-a - Right click on the project at Project Explorer tree, then go to 'Import' -> 'Import...'. Select 'File System' inside the 'General' option, and add the following directory: 'ti\TivaWare_C_Series-2.1.0.12573\utils' and tick the 'uartstdio.h'. **I did that but with 'ti\TivaWare_C_Series-2.2.0.295\utils' folder**.
+
+9-b - Right click on the project at Project Explorer tree, then go to 'Import' -> 'Import...'. Select 'File System' inside the 'General' option, and add the following directory: 'ti\TivaWare_C_Series-2.1.0.12573\\examples\boards\ek-tm4c1294xl\drivers' and tick all the options together with 'Create top-level folder'.
+
+![image](https://user-images.githubusercontent.com/58916022/171073562-78f17d48-17c1-43e3-a4ae-74646c834997.png)
+
+
+**10 - Get the FreeRTOSConfig.h file**
+
+10-a - Rick click on 'include' (on the Project Explorer tree -> 'TivaC-TM4C-FreeRTOS'), then 'New' and 'Header file' and do as followed:
+
+![image](https://user-images.githubusercontent.com/58916022/171074056-4fb33fe4-69de-4b41-8514-45773822d0d8.png)
+
+10-b - Then get the content of [Ajaynirmal Ranganathan FreeRTOSConfig file](https://Ajaynirmal@bitbucket.org/snippets/Ajaynirmal/6naq9j/freertos-config-file-for-tiva-c.git) (that actualy is a MSP432 Free RTOS file) and paste on the file created in step 10-a. 
+
+**11 - Compile!**
+
+The main file is located at the 'freertos_demo.c' file. We didn't add this file. When we compile the project, 7 errors appeared.
+
+![image](https://user-images.githubusercontent.com/58916022/171074685-c1da97e9-589f-41d5-8f11-82afb4f2061b.png)
+
+
+**OK AGORA VAMOS CORRIGIR ERROS, PROCURAR O QUE FALTA E TENTAR FAZER FUNCIONAR!!**
+
+
+
+
 
 
