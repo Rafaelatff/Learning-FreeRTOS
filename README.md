@@ -157,6 +157,25 @@ The main file is located at the 'freertos_demo.c' file. We didn't add this file.
 
 **OK AGORA VAMOS CORRIGIR ERROS, PROCURAR O QUE FALTA E TENTAR FAZER FUNCIONAR!!**
 
+## For later
+
+'Run' -> 'Debug';
+
+then click in following
+
+![image](https://user-images.githubusercontent.com/58916022/171074926-ceef8ce8-4719-40da-9c86-2d1e1f256a07.png)
+
+click in 'stop' button (red square).
+
+'Window' -> 'Show View' -> 'Other' -> 'Terminal' and 'Terminal'. Then click 'Open' button.
+
+Click in the 'Launch Terminal' button (looks like a screen) and then:
+
+![image](https://user-images.githubusercontent.com/58916022/171075151-322058a4-712b-4d32-9856-992d16266602.png)
+
+
+
+
 
 
 
