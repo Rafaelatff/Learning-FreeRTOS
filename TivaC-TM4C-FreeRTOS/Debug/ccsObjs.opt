@@ -1,0 +1,1 @@
+"./croutine.o" "./event_groups.o" "./list.o" "./queue.o" "./tasks.o" "./timers.o" "./tm4c1294ncpdt_startup_ccs_gcc.o" "./drivers/buttons.o" "./drivers/eth_client_lwip.o" "./drivers/exosite_hal_lwip.o" "./drivers/http.o" "./drivers/pinout.o" "./portable/GCC/ARM_CM4F/port.o" "./portable/MemMang/heap_2.o" -Wl,-T"../tm4c1294ncpdt.lds" 
